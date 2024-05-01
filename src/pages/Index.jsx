@@ -48,9 +48,12 @@ const Index = () => {
       {isLoggedIn && (
         <Box p={5} shadow="md" borderWidth="1px" borderRadius="md">
           <Heading size="md">Graphed Data</Heading>
-          <Text>Here would be a graph based on data from Google Sheets.</Text>
-          {/* Placeholder for graph */}
-          <Image src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxzaW1wbGUlMjBiYXIlMjBjaGFydHxlbnwwfHx8fDE3MTQ1ODIwMTZ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Bar Chart" />
+          <Text>Below is a simple bar chart based on data from Google Sheets.</Text>
+          <svg width="200" height="100" style={{ border: "1px solid black" }}>
+            {data.map((item, index) => (
+              <rect key={index} x={index * 50 + 10} y={100 - item.value} width="40" height={item.value} fill="blue" />
+            ))}
+          </svg>
         </Box>
       )}
     </VStack>
